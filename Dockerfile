@@ -3,8 +3,9 @@ FROM alpine:edge
 RUN \
   echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
   apk update && \
-  apk add supervisor shadow bash py2-pip deluge@testing && \
+  apk add --no-cache gcc python2-dev musl-dev libffi-dev openssl-dev supervisor shadow bash py2-pip deluge@testing curl && \
   pip install automat incremental constantly service_identity && \
+  apk del --purge gcc python2-dev musl-dev libffi-dev openssl-dev py2-pip && \
   rm -rf /var/cache/apk/*
 
 # add supervisor conf file for app
