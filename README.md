@@ -6,6 +6,8 @@
 
 Deluge is a full-featured ​BitTorrent client for Linux, OS X, Unix and Windows. It uses ​libtorrent in its backend and features multiple user-interfaces including: GTK+, web and console. It has been designed using the client server model with a daemon process that handles all the bittorrent activity. The Deluge daemon is able to run on headless machines with the user-interfaces being able to connect remotely from any platform.
 
+You can also use this image with the vpn images, by sharing the network between the networks. You can see an example at [dheaps/openvpn-client](https://hub.docker.com/r/dheaps/openvpn-client)
+
 **Build notes**
 
 Latest Deluge release from Alpine Linux, based on [binhex/arch-deluge](https://github.com/binhex/arch-deluge/).
@@ -23,7 +25,8 @@ docker run -d \
     -e UMASK=<umask for created files> \
     -e PUID=<uid for user> \
     -e PGID=<gid for user> \
-    kucrut/deluge
+    -e INTERFACE=<External INTERFACE> \
+    dheaps/deluge
 ```
 
 Please replace all user variables in the above command defined by <> with the correct values.
@@ -45,7 +48,8 @@ docker run -d \
     -e UMASK=022 \
     -e PUID=1000 \
     -e PGID=000 \
-    kucrut/deluge
+    -e INTERFACE=<External INTERFACE> \
+    dheaps/deluge
 ```
 
 **Notes**<br>
