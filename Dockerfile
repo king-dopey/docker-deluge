@@ -3,7 +3,7 @@ FROM alpine:edge
 RUN \
   echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
   apk update && \
-  apk add --no-cache gcc python3-dev musl-dev libffi-dev openssl-dev supervisor shadow bash py2-pip deluge@testing curl && \
+  apk add --no-cache gcc python3-dev musl-dev libffi-dev openssl-dev supervisor shadow bash py3-pip deluge@testing curl && \
   pip3 install automat incremental constantly service_identity pyasn1==0.4.7 && \
   apk del --purge gcc python3-dev musl-dev libffi-dev openssl-dev py3-pip && \
   rm -rf /var/cache/apk/*
